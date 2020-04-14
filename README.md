@@ -26,7 +26,7 @@ export BTRE_DB_HOST="some_value"
 2. Run the following commands:
 ```
 pip3 install -r requirements.txt
-python3 manage.py migrates
+python3 manage.py migrate
 python3 manage.py runserver
 ```
 
