@@ -3,5 +3,10 @@
     "files.associations": {
         "*.html": "html",
         "**/templates/**/*.html": "html"
-    }
+    },
+    "python.linting.pylintArgs": [
+      "--load-plugins=pylint_django",
+      "--indent-string=\"  \"",
+      "--errors-only"
+    ],
 }
