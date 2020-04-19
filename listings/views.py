@@ -38,11 +38,11 @@ def search(request):
     if state:
       queryset_list = queryset_list.filter(state__iexact=state)
 
-  # bedroom
-  if 'bedroom' in request.GET:
-    bedroom = request.GET['bedroom']
-    if bedroom:
-      queryset_list = queryset_list.filter(bedroom__lte=bedroom)
+  # bedrooms
+  if 'bedrooms' in request.GET:
+    bedrooms = request.GET['bedrooms']
+    if bedrooms:
+      queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
 
   # price
   if 'price' in request.GET:
