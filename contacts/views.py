@@ -15,6 +15,7 @@ def contact(request):
     phone = request.POST['phone']
     message = request.POST['message']
     realtor_email = request.POST['realtor_email']
+    user_id = 0
 
     # Check if user has made inquiry already
     if request.user.is_authenticated:
@@ -37,14 +38,15 @@ def contact(request):
     contact.save()
 
     # Send email
-    send_mail(
-      'Property listing inquiry',
-      'There had been an inquiry for ' + listing + '. Sign into the admin panel for more info.',
-      settings.EMAIL_HOST_USER,
-      [realtor_email],
-      fail_silently=False
-    )
+    if settings.EMAIL_ENABLED:
+      send_mail(
+        'Property listing inquiry',
+        'There had been an inquiry for ' + listing + '. Sign into the admin panel for more info.',
+        settings.EMAIL_HOST_USER,
+        [realtor_email],
+        fail_silently=False
+      )
 
-    messages.success(request, 'You request has been sent, realtoor will getback to  you shortly.')
+    messages.success(request, 'You request has been sent, realtor will getback to  you shortly.')
     return redirect('/listings/' + listing_id)
 
