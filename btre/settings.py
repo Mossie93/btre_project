@@ -149,3 +149,9 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'true'
 EMAIL_ENABLED = os.getenv('EMAIL_ENABLED') == 'true'
+
+# Import local config
+try:
+  from .local_settings import *
+except ImportError:
+  pass
